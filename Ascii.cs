@@ -8,7 +8,7 @@ namespace AsciiDotNet
 {
     internal class Ascii
     {
-        private const int scale = 30;
+        private readonly int scale = 30;
         private readonly int xscale;
         private readonly int yscale;
         private readonly int width;
@@ -16,9 +16,10 @@ namespace AsciiDotNet
 
         private StringBuilder output;
 
-        internal Ascii(string filename)
+        internal Ascii(string filename, int scale)
         {
             output = new StringBuilder();
+            this.scale = scale;
 
             using (Image<Rgba32> img = Image.Load(filename))
             {
